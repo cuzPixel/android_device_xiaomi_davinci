@@ -66,4 +66,11 @@
 
     <!-- Should we filter any display modes which are unampped? -->
     <bool name="config_filterDisplayModes">true</bool>
+
+    <!-- If face auth sends the user directly to home/last open app, or stays on keyguard -->
+    <bool name="config_faceAuthDismissesKeyguard">false</bool>
+
+    <!-- Enable face auth only when swiping security view -->
+    <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
+
 </resources>
