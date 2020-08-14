@@ -45,4 +45,22 @@
 
     <!-- Shows the required view for in-display fingerprint -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
+
+    <!-- Display mode remapping table.
+         If the mode names returned by the backend do not match
+         the predefined and translated strings in the Settings
+         app, they can be remapped here. The format is
+         "oldname:newname", one per entry. -->
+    <string-array name="config_displayModeMappings" translatable="false">
+       <item>hal_srgb:srgb</item>
+       <item>video1:cinema</item>
+       <item>video2:cinema</item>
+       <item>video3:cinema</item>
+       <item>GM_1:dynamic</item>
+       <item>GM_2:dynamic</item>
+       <item>GM_3:dynamic</item>
+    </string-array>
+
+    <!-- Should we filter any display modes which are unampped? -->
+    <bool name="config_filterDisplayModes">true</bool>
 </resources>
