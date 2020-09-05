@@ -5,8 +5,7 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq",
       "Values": [
         "9999999",
-        "0x000F8700",
-        "300000"
+        "1017600"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -16,7 +15,7 @@
       "Path": "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
-        "0x000F8700",
+        "1017600",
         "300000"
       ],
       "ResetOnInit": true
@@ -26,9 +25,7 @@
       "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_max_freq",
       "Values": [
         "9999999",
-        "2400000",
-        "0x00143700",
-        "300000"
+        "1324800"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -38,8 +35,7 @@
       "Path": "/sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq",
       "Values": [
         "9999999",
-        "0x00143700",
-        "652800",
+        "1324800",
         "300000"
       ],
       "ResetOnInit": true
@@ -49,8 +45,7 @@
       "Path": "/sys/class/kgsl/kgsl-3d0/max_pwrlevel",
       "Values": [
         "0",
-        "3",
-        "7"
+        "3"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -224,24 +219,6 @@
       "ResetOnInit": true
     },
     {
-      "Name": "L3BigClusterMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-l3-lat/min_freq",
-      "Values": [
-        "1459200000",
-        "300000000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CameraHalCpuset",
-      "Path": "/dev/cpuset/camera-daemon/cpus",
-      "Values": [
-        "0-5",
-        "0-7"
-      ],
-      "ResetOnInit": true
-    },
-    {
       "Name": "LLCCBWHystTriggerCount",
       "Path": "/sys/class/devfreq/soc:qcom,cpu-llcc-ddr-bw/bw_hwmon/hyst_trigger_count",
       "Values": [
@@ -251,11 +228,20 @@
       "ResetOnInit": true
     },
     {
+      "Name": "L3BigClusterMinFreq",
+      "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-l3-lat/min_freq",
+      "Values": [
+        "1459200000",
+        "300000000"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "PMQoSCpuDmaLatency",
       "Path": "/dev/cpu_dma_latency",
       "Values": [
-        "0x00000043",
-        "0x00000064"
+        "67",
+        "100"
       ],
       "HoldFd": true
     },
@@ -265,24 +251,6 @@
       "Values": [
         "0-5",
         "0-5,7"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "UfsClkGateEnable",
-      "Path": "/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "UfsHibern8Enable",
-      "Path": "/sys/devices/platform/soc/1d84000.ufshc/hibern8_on_idle_enable",
-      "Values": [
-        "0",
-        "1"
       ],
       "ResetOnInit": true
     },
@@ -321,17 +289,6 @@
         ""
       ],
       "Type": "Property"
-    },
-    {
-      "Name": "PowerHALPerfProfileState",
-      "Path": "vendor.powerhal.perf_profile",
-      "Values": [
-        "POWER_SAVE",
-        "BIAS_POWER_SAVE",
-        "BIAS_PERFORMANCE",
-        "HIGH_PERFORMANCE"
-      ],
-      "Type": "Property"
     }
   ],
   "Actions": [
@@ -345,31 +302,25 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "0x00143700"
+      "Value": "1324800"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "0x000F8700"
+      "Value": "1017600"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUBigClusterMinFreq",
-      "Duration": 0,
-      "Value": "0x00143700"
+      "Value": "3"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 1,
-      "Value": "0x000F8700"
+      "Duration": 0,
+      "Value": "1017600"
     },
     {
       "PowerHint": "INTERACTION",
@@ -414,18 +365,6 @@
       "Value": "2597"
     },
     {
-      "PowerHint": "INTERACTION",
-      "Node": "UfsClkGateEnable",
-      "Duration": 200,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "UfsHibern8Enable",
-      "Duration": 200,
-      "Value": "0"
-    },
-    {
       "PowerHint": "LAUNCH",
       "Node": "ForegroundCpuset",
       "Duration": 2000,
@@ -459,7 +398,7 @@
       "PowerHint": "LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 2000,
-      "Value": "0x00000043"
+      "Value": "67"
     },
     {
       "PowerHint": "LAUNCH",
@@ -511,27 +450,21 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "L3BigClusterMinFreq",
+      "Node": "L3LittleClusterMinFreq",
       "Duration": 2000,
       "Value": "1459200000"
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "UfsClkGateEnable",
+      "Node": "L3BigClusterMinFreq",
       "Duration": 2000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "UfsHibern8Enable",
-      "Duration": 2000,
-      "Value": "0"
+      "Value": "1459200000"
     },
     {
       "PowerHint": "AUDIO_STREAMING",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 2000,
-      "Value": "0x00000043"
+      "Value": "67"
     },
     {
       "PowerHint": "AUDIO_LOW_LATENCY",
@@ -543,7 +476,7 @@
       "PowerHint": "AUDIO_LOW_LATENCY",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 0,
-      "Value": "0x00000043"
+      "Value": "67"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -555,7 +488,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "3"
+      "Value": "0"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
