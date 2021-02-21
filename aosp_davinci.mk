@@ -15,3 +15,6 @@ PRODUCT_NAME := aosp_davinci
 PRODUCT_DEVICE := davinci
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
+
+# Face Unlock
+TARGET_FACE_UNLOCK := true
