@@ -38,3 +38,7 @@ service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
     class hal
     user system
     group system
+    disabled
+
+on property:sys.boot_completed=1
+    start vendor.motor
