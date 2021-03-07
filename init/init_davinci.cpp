@@ -47,7 +47,7 @@ constexpr const char *RO_PROP_SOURCES[] = {
 
 constexpr const char *PRODUCTS[] = {
     "davinci",
-    "davincin",
+    "davinciin",
 };
 
 constexpr const char *DEVICES[] = {
@@ -108,7 +108,7 @@ void load_props(const char *model, bool is_9t = false, bool is_in = false) {
     }
   }
   if (!is_in) {
-    property_override("ro.boot.product.hardware.sku", PRODUCTS[0]);
+    property_override("ro.boot.product.hardware.sku", "davinci");
   }
   ro_prop_override(nullptr, "product", model, false);
 }
