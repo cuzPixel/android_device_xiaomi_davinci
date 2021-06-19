@@ -15,7 +15,7 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 
 # Firmware
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,vendor/xiaomi-firmware/,install/firmware-update/)
+    vendor/xiaomi-firmware/logo.img:install/firmware-update/logo.img
 
 # Permissions
 PRODUCT_COPY_FILES += \
