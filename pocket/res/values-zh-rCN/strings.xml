@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appname">电池友好的口袋模式</string>
+    <string name="pocketmode_title">电池友好的口袋模式</string>
+    <string name="pocketmode_short_title">口袋模式</string>
+    <string name="pocketmode_summary">电池友好的口袋模式</string>
+    <string name="pocketmode_description">不同于传统的口袋模式不断检查接近和光传感器，这种模式只检查他们当手机处于锁屏。 因此，将延长电池寿命并优化深度睡眠模式。\n如果从口袋中取出屏幕后屏幕自动关闭，请等待几秒钟，一切都会重新开始。</string>
+</resources>
