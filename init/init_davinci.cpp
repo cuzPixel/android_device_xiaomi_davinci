@@ -55,6 +55,20 @@ constexpr const char *DEVICES[] = {
     "Redmi K20",
 };
 
+constexpr const char *BUILD_FINGERPRINT[] = {
+    "Xiaomi/davinci/davinci:11/RKQ1.200826.002/V12.1.2.0.RFJCNXM:user/"
+    "release-keys",
+    "Xiaomi/davinci/davinci:11/RKQ1.200826.002/V12.1.2.0.RFJMIXM:user/"
+    "release-keys",
+    "Xiaomi/davinciin/davinciin:11/RKQ1.200826.002/V12.1.2.0.RFJINXM:user/"
+    "release-keys",
+};
+
+constexpr const char *CLIENT_ID[] = {
+    "android-xiaomi",
+    "android-xiaomi-rev1",
+};
+
 void property_override(char const prop[], char const value[], bool add = true) {
   prop_info *pi;
 
@@ -86,14 +100,30 @@ void load_props(const char *model, bool is_9t = false, bool is_in = false) {
     ro_prop_override(source, "model", model, true);
     if (!is_in) {
       ro_prop_override(source, "name", PRODUCTS[0], true);
+      ro_prop_override(source, "fingerprint",
+                       is_9t ? BUILD_FINGERPRINT[1] : BUILD_FINGERPRINT[0],
+                       false);
+      ro_prop_override(nullptr, "fingerprint",
+                       is_9t ? BUILD_FINGERPRINT[1] : BUILD_FINGERPRINT[0],
+                       false);
     } else {
       ro_prop_override(source, "name", PRODUCTS[1], true);
+      ro_prop_override(source, "fingerprint", BUILD_FINGERPRINT[2], false);
+      ro_prop_override(nullptr, "fingerprint", BUILD_FINGERPRINT[2], false);
     }
   }
   if (!is_in) {
-    property_override("ro.boot.product.hardware.sku", "davinci");
+    property_override("ro.boot.product.hardware.sku", PRODUCTS[0]);
   }
   ro_prop_override(nullptr, "product", model, false);
+
+  if (is_9t) {
+    ro_prop_override(nullptr, "com.google.clientidbase", CLIENT_ID[0], false);
+  } else if (is_in) {
+    ro_prop_override(nullptr, "com.google.clientidbase", CLIENT_ID[0], false);
+    ro_prop_override(nullptr, "com.google.clientidbase.ms", CLIENT_ID[1],
+                     false);
+  }
 }
 
 void vendor_load_properties() {
