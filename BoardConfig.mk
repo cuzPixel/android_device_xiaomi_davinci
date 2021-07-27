@@ -8,7 +8,7 @@
 BOARD_BOOT_HEADER_VERSION := 1
 
 # Display density
-TARGET_SCREEN_DENSITY := 440
+TARGET_SCREEN_DENSITY := 420
 
 # Inherit from sm6150-common
 include device/xiaomi/sm6150-common/BoardConfigCommon.mk
