@@ -26,7 +26,7 @@ TARGET_OTA_ASSERT_DEVICE := davinci,davinciin
 AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
 
 # Caf revision
-CAF_REVISION := LA.UM.9.1.r1-10600-SMxxx0.0
+CAF_REVISION := LA.UM.9.1.r1-10900-SMxxx0.0
 
 # Fingerprint
 TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension
